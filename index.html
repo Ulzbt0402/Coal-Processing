@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="mn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Би тү Би Консалтинг ХХК — Нүүрсний Гүн Боловсруулалт & Нэмүү Өртгийн Сүлжээ</title>
+    <link rel="stylesheet" href="./assets/site.css">
+    <meta name="description" content="Нүүрсний гүн боловсруулалтын технологи, 16 бүтээгдэхүүний каталог, гарц ба орлогын жишиг тооцоолуур. Би тү Би Консалтинг ХХК.">
+    <link rel="icon" href="./assets/btob-logo.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scrollbar for dark industrial theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.45);
+            box-shadow: 0 12px 32px -8px rgba(16, 185, 129, 0.15);
+        }
+        .hero-grid {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        /* Hide scrollbar for horizontal tabs on mobile */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.35s ease-out forwards;
+        }
+
+        :root { color-scheme: dark; }
+        section[id] { scroll-margin-top: 6rem; }
+        :focus-visible { outline: 2px solid #34d399; outline-offset: 4px; }
+        .skip-link { position: fixed; top: .5rem; left: .5rem; z-index: 100; padding: .75rem; background: #10b981; color: #090d16; transform: translateY(-200%); }
+        .skip-link:focus { transform: translateY(0); }
+        p { font-size: 1rem !important; line-height: 1.65 !important; }
+        .text-xs, [class~="text-[11px]"], [class~="text-[10px]"] { font-size: .875rem !important; }
+        @media (max-width: 639px) {
+            header a[aria-label="Нүүр хуудас"] > div > span:last-child { display: none; }
+            #modalBackdrop + div { padding: .5rem; }
+            #productModal [class~="max-h-[75vh]"] { max-height: 65dvh; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-coal-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+    <a href="#schematic-section" class="skip-link">Үндсэн агуулга руу очих</a>
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-coal-950/90 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo modeled after BToB Consulting emblem -->
+                <a href="./" aria-label="Нүүр хуудас" class="flex min-w-0 items-center gap-3.5 group">
+                    <img src="./assets/btob-logo.jpg" alt="" width="48" height="48" class="h-11 w-11 sm:h-12 sm:w-12 shrink-0 rounded-xl">
+                    <div>
+                        <span class="font-extrabold text-sm sm:text-lg tracking-tight text-white block leading-tight">Би тү Би Консалтинг ХХК</span>
+                        <span class="text-[11px] text-emerald-400 font-semibold tracking-wider uppercase block">BToB Consulting • Нүүрс-Химийн Өртгийн Сүлжээ</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+                    <a href="#schematic-section" class="hover:text-emerald-400 transition-colors">Схемчилсэн загвар</a>
+                    <a href="#value-chain" class="hover:text-emerald-400 transition-colors">Технологийн Бүдүүвч</a>
+                    <a href="#catalog-section" class="hover:text-emerald-400 transition-colors">Бүтээгдэхүүний Каталоги</a>
+                    <a href="#calculator-section" class="hover:text-emerald-400 transition-colors">Өртөг Тооцоолуур</a>
+                </nav>
+
+                <!-- CTA -->
+                <div class="flex items-center gap-2.5 sm:gap-3">
+                    <button type="button" id="menuToggle" aria-controls="mobileNav" aria-expanded="false" class="lg:hidden rounded-xl border border-slate-600 px-3 py-2 text-sm">Цэс</button>
+                    <a href="#catalog-section" class="hidden lg:inline-flex px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-coal-950 font-bold text-xs sm:text-sm transition-all shadow-lg shadow-emerald-500/20">
+                        Каталоги Үзэх
+                    </a>
+                </div>
+            </div>
+        </div>
+        <nav id="mobileNav" aria-label="Гар утасны цэс" class="hidden lg:hidden border-t border-slate-700 p-4">
+            <div class="grid grid-cols-2 gap-3 text-sm">
+                <a href="#schematic-section">Схемчилсэн загвар</a>
+                <a href="#value-chain">Технологийн бүдүүвч</a>
+                <a href="#catalog-section">Бүтээгдэхүүний каталог</a>
+                <a href="#calculator-section">Өртөг тооцоолуур</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden hero-grid border-b border-slate-800/80 pt-12 pb-16 sm:pt-20 sm:pb-24">
+        <!-- Ambient Glows -->
+        <div class="absolute -top-24 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-32 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/90 border border-slate-700 text-emerald-400 text-xs font-medium mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Түүхий нүүрснээс өндөр технологийн бүтээгдэхүүн рүү
+                </div>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-6">
+                    Нүүрсний Гүн Боловсруулалт ба <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300">Нэмүү Өртгийн Сүлжээ</span>
+                </h1>
+                <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl">
+                    Түүхий нүүрсийг зөвхөн эрчим хүчний зориулалтаар шатаах бус пиролиз, хийжүүлэлт, шингэрүүлэлт болон нанотехнологийн аргаар гүн боловсруулж <strong class="text-white">16 төрлийн</strong> химийн болон дэвшилтэт материал гарган авах технологийн зураглал.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#catalog-section" class="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-coal-950 font-bold text-sm sm:text-base transition-all shadow-lg shadow-emerald-500/25 flex items-center gap-2">
+                        <span>Бүтээгдэхүүнүүдтэй танилцах</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <a href="#schematic-section" class="px-6 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-white border border-slate-700 font-semibold text-sm sm:text-base transition-all flex items-center gap-2">
+                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/></svg>
+                        <span>Схемчилсэн загвар</span>
+                    </a>
+                    <a href="#calculator-section" class="px-6 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-white border border-slate-700 font-semibold text-sm sm:text-base transition-all flex items-center gap-2">
+                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        <span>Өртөг тооцоолох</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Key Metrics Banner -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-14">
+                <div class="glass-card rounded-2xl p-5">
+                    <div class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Боловсруулах Чиглэл</div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white">4 Үндсэн</div>
+                    <div class="text-xs text-emerald-400 mt-1">Пиролиз, Хийжүүлэлт, CTL, Нано</div>
+                </div>
+                <div class="glass-card rounded-2xl p-5">
+                    <div class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Эцсийн Бүтээгдэхүүн</div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">16 Төрөл</div>
+                    <div class="text-xs text-slate-400 mt-1">Түлш, Хими, Полимер, Карбон</div>
+                </div>
+                <div class="glass-card rounded-2xl p-5">
+                    <div class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Тооцооллын Хувилбар</div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-amber-400">5 замнал</div>
+                    <div class="text-xs text-slate-400 mt-1">Гарц ба орлогыг харьцуулах</div>
+                </div>
+                <div class="glass-card rounded-2xl p-5">
+                    <div class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Дагалдах Урсгал</div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-teal-300">Үнс · хий · давирхай</div>
+                    <div class="text-xs text-slate-400 mt-1">Дахин ашиглах боломжийг судлах</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Interactive Visual Schematic Diagram Section (Inspired by Oak Ridge & Clean Coal Conversion) -->
+    <section id="schematic-section" class="py-16 sm:py-20 bg-coal-950 border-b border-slate-800/90 relative overflow-hidden">
+        <div class="absolute inset-0 hero-grid opacity-60 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Header & View Switcher -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-bold mb-2">
+                        <span>Нэг ч молекулыг орхихгүй (No Molecule Left Behind)</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Нүүрс Боловсруулах Схемчилсэн загвар</h2>
+                    <p class="text-slate-400 text-sm mt-2 max-w-2xl">Уурхайгаас олборлосон нүүрсийг боловсруулах үйлдвэрээр (Coal Refinery) дамжуулан ямар замналаар, хичнээн төрлийн өндөр өртөгтэй бүтээгдэхүүн болгон хувиргахыг схем дээр дарж судална уу.</p>
+                </div>
+
+                <!-- Schematic Mode Toggle Buttons -->
+                <div class="inline-flex p-1.5 rounded-2xl bg-slate-900 border border-slate-700/80 self-start">
+                    <button type="button" id="btn-view-tree" aria-pressed="true" onclick="switchSchematicView('tree')" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-emerald-500 text-coal-950 shadow-md">
+                        1. Молекул Бүрийн Урсгал (Салбар Схем)
+                    </button>
+                    <button type="button" id="btn-view-hex" aria-pressed="false" onclick="switchSchematicView('hex')" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-300 hover:text-white">
+                        2. Цэвэр Хувиргалтын Бүтэц (Hex-Схем)
+                    </button>
+                </div>
+            </div>
+
+            <!-- VIEW 1: Coal Refinery Branching Tree Schematic (Inspired by Oak Ridge Diagram) -->
+            <div id="schematic-view-tree" class="animate-fade-in">
+                <div class="glass-card rounded-3xl p-5 sm:p-8 border border-slate-700/80">
+                    <!-- Top Origin Flow: Mine -> Refinery -> Carbon Capture & Heat/Power -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center pb-8 border-b border-slate-800">
+                        <!-- Coal Mine Node -->
+                        <div class="lg:col-span-3 p-4 rounded-2xl bg-slate-900/90 border border-slate-700 flex items-center gap-3.5">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg>
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase tracking-wider text-amber-400 font-bold">Эх үүсвэр</span>
+                                <h3 class="text-sm font-extrabold text-white">Нүүрсний Уурхай</h3>
+                                <p class="text-[11px] text-slate-400">Хүрэн, чулуун, коксжих нүүрс</p>
+                            </div>
+                        </div>
+
+                        <!-- Flow Arrow -->
+                        <div class="hidden lg:flex lg:col-span-1 justify-center text-emerald-400">
+                            <svg class="w-8 h-8 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </div>
+
+                        <!-- Central Coal Refinery Hub -->
+                        <div class="lg:col-span-4 p-5 rounded-2xl bg-gradient-to-br from-emerald-950/80 via-slate-900 to-slate-900 border-2 border-emerald-500/50 shadow-lg shadow-emerald-500/10">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-14 h-14 rounded-2xl bg-emerald-500 text-coal-950 flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/30">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-wider text-emerald-400 font-bold">Төв Цогцолбор</span>
+                                    <h3 class="text-base sm:text-lg font-extrabold text-white">Нүүрс Боловсруулах Үйлдвэр</h3>
+                                    <p class="text-xs text-slate-300">“Coal Refinery” — Молекулын гүн задрал</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Flow Arrow -->
+                        <div class="hidden lg:flex lg:col-span-1 justify-center text-sky-400">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </div>
+
+                        <!-- Upper Branch: Carbon Capture & Heat/Power -->
+                        <div class="lg:col-span-3 p-4 rounded-2xl bg-sky-950/30 border border-sky-500/30">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-[10px] uppercase tracking-wider text-sky-400 font-bold">Дээд Салбар • CCUS</span>
+                                <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[10px] font-bold">CO₂ Барих</span>
+                            </div>
+                            <h4 class="text-sm font-bold text-white mb-2">Дулаан, Эрчим Хүч & Нүүрстөрөгч Барих</h4>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-200 border border-slate-700">Этанол</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-200 border border-slate-700">Барилгын дүүргэгч</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-200 border border-slate-700">Цэвэр ус</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Main Backbone & Branching Nodes -->
+                    <div class="mt-8">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Үндсэн Голдирол: Нүүрснээс Салбарлах 12 Төрлийн Бүтээгдэхүүн (Дарж дэлгэрэнгүй үзнэ үү)</span>
+                            <span class="text-xs text-slate-400">Карт бүр дээр дарвал холбогдох бүтээгдэхүүний ТЭЗҮ/технологи нээгдэнэ</span>
+                        </div>
+
+                        <!-- Visual SVG Spine Connector (Desktop) -->
+                        <div class="hidden lg:block mb-4 px-6">
+                            <svg class="w-full h-10" viewBox="0 0 1000 40" fill="none" preserveAspectRatio="none">
+                                <path d="M20 5 L980 5" stroke="#10b981" stroke-width="3" stroke-dasharray="6 4"/>
+                                <circle cx="80" cy="5" r="5" fill="#10b981"/>
+                                <circle cx="250" cy="5" r="5" fill="#10b981"/>
+                                <circle cx="420" cy="5" r="5" fill="#10b981"/>
+                                <circle cx="590" cy="5" r="5" fill="#10b981"/>
+                                <circle cx="760" cy="5" r="5" fill="#10b981"/>
+                                <circle cx="920" cy="5" r="5" fill="#10b981"/>
+                                <path d="M80 5 L80 38 M250 5 L250 38 M420 5 L420 38 M590 5 L590 38 M760 5 L760 38 M920 5 L920 38" stroke="#334155" stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <!-- 6 Branch Columns representing the exact Oak Ridge value stream -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3.5">
+                            <!-- Branch 1: Chemicals & Rare Earths -->
+                            <div class="space-y-3">
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(5)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-emerald-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-emerald-400 uppercase mb-1">01. Химийн түүхий эд</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-emerald-300">Химийн Бодисууд</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Метанол, аммиак, BTX уусгагч, хүчил</p>
+                                </div>
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(16)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-amber-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-amber-400 uppercase mb-1">02. Үнэт элемент</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-amber-300">Газрын Ховор Элемент</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">REE (Ce, Nd, Y), Германи, Галли ялгах</p>
+                                </div>
+                            </div>
+
+                            <!-- Branch 2: Activated Carbon & Met Coal -->
+                            <div class="space-y-3">
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(12)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-emerald-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-emerald-400 uppercase mb-1">03. Шүүлтүүр материал</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-emerald-300">Идэвхжүүлсэн Нүүрс</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Алт баяжуулалт, ус & агаар цэвэршүүлэгч</p>
+                                </div>
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(1)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-amber-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-amber-400 uppercase mb-1">04. Металлурги</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-amber-300">Металлургийн Кокс</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Ган, ширэм хайлуулах өндөр илчлэгт кокс</p>
+                                </div>
+                            </div>
+
+                            <!-- Branch 3: Mesoporous Carbon & Carbon Fibers -->
+                            <div class="space-y-3">
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(12)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-purple-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-purple-400 uppercase mb-1">05. Нано сүвэрхэг</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-purple-300">Мезосүвэрхэг Карбон</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Катализатор тээгч, хий хуримтлуулагч</p>
+                                </div>
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(13)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-purple-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-purple-400 uppercase mb-1">06. Композит</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-purple-300">Нүүрстөрөгчийн Мяндас</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Carbon Fibers — Салхин сэнс, авто, сансар</p>
+                                </div>
+                            </div>
+
+                            <!-- Branch 4: Graphene & Electronics -->
+                            <div class="space-y-3">
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(14)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-purple-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-purple-400 uppercase mb-1">07. 2D Наноматериал</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-purple-300">Графен (Graphene)</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Хэт бат бэх, цахилгаан дамжуулагч давхарга</p>
+                                </div>
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(14)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-sky-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-sky-400 uppercase mb-1">08. Хагас дамжуулагч</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-sky-300">Электроник & Нарны Зай</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Фотовольтаик эд анги, микрочип суурь</p>
+                                </div>
+                            </div>
+
+                            <!-- Branch 5: Nuclear Graphite & Li-ion Electrodes -->
+                            <div class="space-y-3">
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(3)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-amber-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-amber-400 uppercase mb-1">09. Эрчим хүчний цөм</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-amber-300">Цөмийн Бал Чулуу</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Nuclear Graphite & Өндөр цэвэр электрод</p>
+                                </div>
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(14)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-emerald-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-emerald-400 uppercase mb-1">10. Батарей технологи</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-emerald-300">Лити-Ион Батарей Анод</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">EV батарей ба суперконденсатор электрод</p>
+                                </div>
+                            </div>
+
+                            <!-- Branch 6: Thermal Insulation & Construction Materials -->
+                            <div class="space-y-3">
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(16)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-sky-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-sky-400 uppercase mb-1">11. Дулаан тусгаарлалт</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-sky-300">Карбон Хөөс & Тусгаарлагч</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Дулаан дамжуулалт ба тусгаарлалтын хавтан</p>
+                                </div>
+                                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(16)" class="cursor-pointer p-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-emerald-400 transition-all group">
+                                    <div class="text-[10px] font-bold text-emerald-400 uppercase mb-1">12. Дэд бүтэц</div>
+                                    <div class="text-sm font-extrabold text-white group-hover:text-emerald-300">Барилгын Материал</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Геополимер бетон, дээврийн хавтан, асфальт</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 2: Clean Coal Conversion Hexagonal Architecture (Inspired by 1st Graphic) -->
+            <div id="schematic-view-hex" class="hidden animate-fade-in">
+                <div class="glass-card rounded-3xl p-6 sm:p-10 border border-slate-700/80">
+                    <div class="text-center max-w-2xl mx-auto mb-8">
+                        <h3 class="text-lg sm:text-xl font-extrabold text-white">Нүүрсний Цэвэр Хувиргалтын Интеграцчилсан Бүтэц</h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">Зүүн талын 4 үеийн технологиуд төв цөмд нэгдэж, баруун талын 3 түвшний үр дүнг бий болгоно.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-11 gap-6 items-center">
+                        <!-- Left Column: 4 Technology Pillars -->
+                        <div class="lg:col-span-4 space-y-3">
+                            <div onclick="filterByTab('pyrolysis')" class="cursor-pointer p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border-l-4 border-amber-500 border border-slate-700/70 transition-all">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-extrabold text-amber-400 uppercase">1. Суурь Түлхүүр Технологи</span>
+                                    <span class="text-xs text-slate-500">→</span>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-1">Коксжуулалт, нам температурын пиролиз, нүүрс баяжуулалт</p>
+                            </div>
+
+                            <div onclick="filterByTab('gasification')" class="cursor-pointer p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border-l-4 border-sky-400 border border-slate-700/70 transition-all">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-extrabold text-sky-400 uppercase">2. Тэргүүлэх Чиглэлийн Технологи</span>
+                                    <span class="text-xs text-slate-500">→</span>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-1">Хийжүүлэлт (Syngas), Метанол-Олефин (MTO), шингэн түлш</p>
+                            </div>
+
+                            <div onclick="filterByTab('liquefaction')" class="cursor-pointer p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border-l-4 border-emerald-400 border border-slate-700/70 transition-all">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-extrabold text-emerald-400 uppercase">3. Орчин Үеийн Инженерчлэл</span>
+                                    <span class="text-xs text-slate-500">→</span>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-1">Ногоон эрчим хүчтэй хосолсон устөрөгч ба CCUS систем</p>
+                            </div>
+
+                            <div onclick="filterByTab('advanced')" class="cursor-pointer p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border-l-4 border-purple-400 border border-slate-700/70 transition-all">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-extrabold text-purple-400 uppercase">4. Цоо Шинэ / Дэвшилтэт Технологи</span>
+                                    <span class="text-xs text-slate-500">→</span>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-1">Графен, нүүрстөрөгчийн мяндас, цахилгаан химийн хувиргалт</p>
+                            </div>
+                        </div>
+
+                        <!-- Center Column: Hexagonal Clean Coal Core -->
+                        <div class="lg:col-span-3 flex flex-col items-center justify-center py-4">
+                            <div class="relative w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center">
+                                <!-- Outer Hexagon SVG -->
+                                <svg class="w-full h-full drop-shadow-[0_0_25px_rgba(16,185,129,0.25)]" viewBox="0 0 200 200">
+                                    <polygon points="100,8 184,54 184,146 100,192 16,146 16,54" fill="#0f172a" stroke="#10b981" stroke-width="4"/>
+                                    <polygon points="100,24 170,62 170,138 100,176 30,138 30,62" fill="#1e293b" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4 3"/>
+                                </svg>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                                    <span class="text-[11px] font-bold uppercase tracking-widest text-emerald-400">Цэвэр Хувиргалт</span>
+                                    <span class="text-2xl sm:text-3xl font-extrabold text-white my-1">НҮҮРС</span>
+                                    <span class="text-[11px] text-slate-300 leading-tight">Эрчим хүч хэмнэх, CO₂ бууруулах, өндөр чанар</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: 3 Levels of Output & Integration -->
+                        <div class="lg:col-span-4 space-y-4">
+                            <div class="p-4 rounded-2xl bg-sky-950/25 border border-sky-500/30">
+                                <div class="text-xs font-extrabold text-sky-400 uppercase mb-1">Молекулын Түвшин (Molecular Level)</div>
+                                <p class="text-xs text-slate-300 leading-relaxed">Каталитик хувиргалтын үед нүүрсний молекулын бүтэц, урвалын идэвхийг удирдан графен, нано материал, цэвэр нүүрсустөрөгч гарган авах.</p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-amber-950/25 border border-amber-500/30">
+                                <div class="text-xs font-extrabold text-amber-400 uppercase mb-1">Процессын Түвшин (Process Level)</div>
+                                <p class="text-xs text-slate-300 leading-relaxed">Дулаан ба усны хэрэглээг хэмнэх, хаягдал хийг эргүүлэн ашиглах шинэ үеийн интеграцчилсан үйлдвэрийн технологи.</p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-emerald-950/25 border border-emerald-500/30">
+                                <div class="text-xs font-extrabold text-emerald-400 uppercase mb-1">Системийн Түвшин (System Level)</div>
+                                <p class="text-xs text-slate-300 leading-relaxed">Нүүрс-хими, нефть-хими, байгалийн хий болон нарийн химийн аж үйлдвэрүүдийг нэг цогцолборт уялдуулан хөгжүүлэх.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Process Overview Strip -->
+    <section id="value-chain" class="py-12 bg-coal-900/50 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Технологийн Боловсруулалтын Үе Шат</h2>
+                <p class="text-sm text-slate-400 mt-2">Нүүрсний төрөл, чанараас хамааран 4 үндсэн технологийн замаар гүн боловсруулж өндөр үнэ цэнтэй түүхий эд гарган авна.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <!-- Step 1 -->
+                <div onclick="filterByTab('pyrolysis')" class="cursor-pointer group rounded-2xl bg-slate-800/40 hover:bg-slate-800/80 border border-slate-700/70 hover:border-amber-500/50 p-5 transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-400 text-xs font-bold">01. Дулааны задрал</span>
+                        <span class="text-slate-500 group-hover:text-amber-400 transition-colors">→</span>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-1">Пиролиз ба Коксжуулалт</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Агааргүй орчинд 500°C–1100°C халааж кокс, хагас кокс, чулуун нүүрсний давирхай, BTX гарган авах.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div onclick="filterByTab('gasification')" class="cursor-pointer group rounded-2xl bg-slate-800/40 hover:bg-slate-800/80 border border-slate-700/70 hover:border-emerald-500/50 p-5 transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 text-xs font-bold">02. Химийн хувиргалт</span>
+                        <span class="text-slate-500 group-hover:text-emerald-400 transition-colors">→</span>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-1">Хийжүүлэлт (Syngas)</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Усны уур, хүчилтөрөгчтэй урвалд оруулж синтез хий (CO+H₂), метанол, аммиак, устөрөгч, хуванцар үйлдвэрлэх.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div onclick="filterByTab('liquefaction')" class="cursor-pointer group rounded-2xl bg-slate-800/40 hover:bg-slate-800/80 border border-slate-700/70 hover:border-sky-500/50 p-5 transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-400 text-xs font-bold">03. Синтез түлш</span>
+                        <span class="text-slate-500 group-hover:text-sky-400 transition-colors">→</span>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-1">Шингэрүүлэлт (CTL)</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Шууд болон Фишер-Тропшийн синтезээр өндөр цэвэршилттэй дизель, бензин, онгоцны Jet A-1 түлш гарган авах.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div onclick="filterByTab('advanced')" class="cursor-pointer group rounded-2xl bg-slate-800/40 hover:bg-slate-800/80 border border-slate-700/70 hover:border-purple-500/50 p-5 transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-400 text-xs font-bold">04. Нано & Дагалдах</span>
+                        <span class="text-slate-500 group-hover:text-purple-400 transition-colors">→</span>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-1">Дэвшилтэт Материал</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Графен, нүүрстөрөгчийн мяндас, идэвхжүүлсэн нүүрс, гумины хүчил болон үнснээс газрын ховор элемент ялгах.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Interactive Catalog Section -->
+    <section id="catalog-section" class="py-16 sm:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header & Search -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+                <div>
+                    <span class="text-emerald-400 font-semibold text-xs uppercase tracking-widest">Бүтээгдэхүүний Сан</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1">Технологиор Ангилсан Бүтээгдэхүүнүүд</h2>
+                    <p class="text-slate-400 text-sm mt-2 max-w-2xl">Аль ч бүтээгдэхүүн дээр дарж технологийн шат дамжлага, шаардлагатай нүүрсний марк, гарц болон зах зээлийн дундаж үнийг дэлгэрэнгүй үзнэ үү.</p>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative w-full lg:w-80">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                    <input type="text" id="searchInput" aria-label="Бүтээгдэхүүн эсвэл технологи хайх" placeholder="Бүтээгдэхүүн, технологи хайх..."
+                        class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
+                    <button id="clearSearchBtn" aria-label="Хайлтыг цэвэрлэх" class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-white">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <p class="mb-5 text-sm leading-relaxed text-slate-400">Үнэ, гарцын хүрээ нь эх загварын жишиг мэдээлэл. Нүүрсний марк, найрлага, үйлдвэрийн технологиос хамааран өөрчлөгдөнө. Бүтээгдэхүүн бүр тусдаа технологийн замналтай.</p>
+            <!-- Category Filter Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-4 mb-6 border-b border-slate-800">
+                <button data-tab="all" class="tab-btn active whitespace-nowrap px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-emerald-500 text-coal-950 shadow-md shadow-emerald-500/20">
+                    Бүгд <span class="ml-1 px-1.5 py-0.5 text-[11px] rounded-md bg-coal-950/20" id="count-all">16</span>
+                </button>
+                <button data-tab="pyrolysis" class="tab-btn whitespace-nowrap px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700">
+                    Пиролиз ба Коксжуулалт <span class="ml-1 px-1.5 py-0.5 text-[11px] rounded-md bg-slate-900/60" id="count-pyrolysis">4</span>
+                </button>
+                <button data-tab="gasification" class="tab-btn whitespace-nowrap px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700">
+                    Хийжүүлэлт (Syngas) <span class="ml-1 px-1.5 py-0.5 text-[11px] rounded-md bg-slate-900/60" id="count-gasification">5</span>
+                </button>
+                <button data-tab="liquefaction" class="tab-btn whitespace-nowrap px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700">
+                    Шингэрүүлэлт (CTL) <span class="ml-1 px-1.5 py-0.5 text-[11px] rounded-md bg-slate-900/60" id="count-liquefaction">2</span>
+                </button>
+                <button data-tab="advanced" class="tab-btn whitespace-nowrap px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700">
+                    Дэвшилтэт Материал & Бусад <span class="ml-1 px-1.5 py-0.5 text-[11px] rounded-md bg-slate-900/60" id="count-advanced">5</span>
+                </button>
+            </div>
+
+            <!-- Results Info -->
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-6">
+                <div id="resultsCountText" aria-live="polite">Нийт <strong class="text-white">16</strong> бүтээгдэхүүн харуулж байна</div>
+                <div class="hidden sm:flex items-center gap-2">
+                    <span>Суурь түүхий нүүрсний жишиг үнэ:</span>
+                    <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 font-semibold">$65 / тонн</span>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                <!-- Cards injected dynamically by JS -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="emptyState" class="hidden text-center py-16 glass-card rounded-2xl">
+                <div class="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center mx-auto mb-4 text-slate-400">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-white">Тохирох бүтээгдэхүүн олдсонгүй</h3>
+                <p class="text-sm text-slate-400 mt-1 mb-4">Хайлтын утгаа өөрчлөх эсвэл шүүлтүүрийг цэвэрлэнэ үү.</p>
+                <button onclick="resetFilters()" class="px-4 py-2 rounded-xl bg-emerald-500 text-coal-950 font-semibold text-sm hover:bg-emerald-400 transition-colors">
+                    Бүх бүтээгдэхүүнийг харах
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Value & Yield Estimator Section -->
+    <section id="calculator-section" class="py-16 sm:py-20 bg-coal-900/70 border-t border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-10">
+                <span class="text-amber-400 font-semibold text-xs uppercase tracking-widest">Эдийн Засгийн Тооцоолуур</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1">Өртөг ба Гарцын Тооцоолуур</h2>
+                <p class="text-slate-400 text-sm mt-2">Түүхий нүүрсний хэмжээ болон боловсруулах технологийн чиглэлийг сонгож, түүхий эдээр нь зарсантай харьцуулахад хэр хэмжээний эцсийн бүтээгдэхүүн ба нэмүү өртөг бий болохыг тооцоолно уу.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Controls Panel -->
+                <div class="lg:col-span-5 glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="coalRange" class="text-sm font-semibold text-slate-200">Түүхий нүүрсний хэмжээ (тонн)</label>
+                            <span id="coalAmountBadge" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 font-bold text-sm">1,000 тн</span>
+                        </div>
+                        <input type="range" id="coalRange" aria-label="Түүхий нүүрсний хэмжээ, тонн" min="100" max="50000" step="100" value="1000"
+                            class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 mb-3">
+                        <div class="grid grid-cols-4 gap-2">
+                            <button type="button" onclick="setCoalAmount(500)" class="py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-300 border border-slate-700">500 тн</button>
+                            <button type="button" onclick="setCoalAmount(1000)" class="py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-300 border border-slate-700">1,000 тн</button>
+                            <button type="button" onclick="setCoalAmount(10000)" class="py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-300 border border-slate-700">10,000 тн</button>
+                            <button type="button" onclick="setCoalAmount(50000)" class="py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-300 border border-slate-700">50,000 тн</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="rawPriceSelect" class="block text-sm font-semibold text-slate-200 mb-2">Түүхий нүүрсний төрөл (Жишиг үнэ)</label>
+                        <select id="rawPriceSelect" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-emerald-500">
+                            <option value="45">Хүрэн нүүрс / Эрчим хүчний нүүрс ($45 / тонн)</option>
+                            <option value="65" selected>Дунд зэргийн чулуун нүүрс ($65 / тонн)</option>
+                            <option value="110">Угаасан коксжих нүүрс ($110 / тонн)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="pathwaySelect" class="block text-sm font-semibold text-slate-200 mb-2">Боловсруулах технологийн чиглэл</label>
+                        <select id="pathwaySelect" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-emerald-500">
+                            <option value="coking">1. Кокс-Химийн Цогцолбор (Кокс + Давирхай + BTX)</option>
+                            <option value="methanol">2. Хийжүүлэлт → Метанол & Олефин (Хуванцар)</option>
+                            <option value="fertilizer">3. Хийжүүлэлт → Аммиак & Карбамид Бордоо</option>
+                            <option value="ctl">4. Нүүрс Шингэрүүлэлт → Дизель & Jet A-1 Түлш</option>
+                            <option value="carbon">5. Дэвшилтэт Материал → Идэвхжүүлсэн нүүрс & Мяндас</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="processingCost" class="block text-sm font-semibold text-slate-200 mb-2">Боловсруулах зардал ($ / түүхий нүүрсний тонн)</label>
+                        <input id="processingCost" type="number" min="0" max="100000" step="1" value="0" class="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white">
+                    </div>
+                    <p class="text-sm leading-relaxed text-slate-400">Гарц, үнэ нь эх загварын жишиг утга. Зардлаа оруулж харьцуулна уу. Хөрөнгө оруулалт, татвар, санхүүжилтийн зардал тооцоонд ороогүй.</p>
+                </div>
+
+                <!-- Results & Visual Comparison Panel -->
+                <div aria-live="polite" aria-atomic="true" class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8">
+                    <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                        <div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider">Бүтээгдэхүүний үнэлгээ / түүхий нүүрсний орлого</div>
+                            <div class="flex items-baseline gap-3 mt-1">
+                                <span id="multiplierDisplay" class="text-3xl sm:text-4xl font-extrabold text-emerald-400">4.8x дахин</span>
+                                <span id="netGainDisplay" class="text-sm font-semibold text-amber-400">+$247,000 нэмэлт орлого</span>
+                            </div>
+                        </div>
+                        <div class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-right">
+                            <div class="text-[11px] text-slate-400">Сонгосон технологи</div>
+                            <div id="selectedPathName" class="text-xs font-bold text-white">Кокс-Химийн Цогцолбор</div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Bar Comparison -->
+                    <div class="my-6 space-y-5">
+                        <!-- Raw Coal Bar -->
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-400 font-medium">Түүхий нүүрсээр шууд борлуулах орлого:</span>
+                                <span id="rawRevenueText" class="font-bold text-slate-200">$65,000</span>
+                            </div>
+                            <div class="w-full h-4 bg-slate-800 rounded-full overflow-hidden p-0.5">
+                                <div id="rawBar" class="h-full bg-slate-500 rounded-full transition-all duration-500" style="width: 20%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Processed Product Bar -->
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-emerald-400 font-semibold">Гүн боловсруулсан бүтээгдэхүүний нийт үнэлгээ:</span>
+                                <span id="processedRevenueText" class="font-extrabold text-emerald-400 text-base">$312,000</span>
+                            </div>
+                            <div class="w-full h-5 bg-slate-800 rounded-full overflow-hidden p-0.5">
+                                <div id="processedBar" class="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-amber-400 rounded-full transition-all duration-500" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-700 pt-5">
+                        <div><div class="text-sm text-slate-400">Нийт боловсруулах зардал</div><div id="processingCostTotal" class="mt-1 text-xl font-bold">$0</div></div>
+                        <div><div class="text-sm text-slate-400">Түүхий эд, боловсруулалтын зардлын дараах зөрүү</div><div id="operatingDifference" class="mt-1 text-xl font-bold text-emerald-400"></div></div>
+                    </div>
+                    <!-- Output Breakdown Table -->
+                    <div class="mt-6">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Гарах эцсийн бүтээгдэхүүний задаргаа (Yield Breakdown)</h4>
+                        <div id="breakdownList" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Intellectual Property & Collaboration Notice -->
+    <footer class="bg-coal-950 border-t border-slate-800/90 pt-12 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Collaboration & IP Notice Box -->
+            <div class="rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800/80 to-slate-900 border border-emerald-500/25 p-6 sm:p-8 mb-10">
+                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0 text-emerald-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white mb-1.5">Санамж ба Хамтын Ажиллагаа</h3>
+                            <p class="text-sm text-slate-300 leading-relaxed max-w-3xl">
+                                Санамж: Энэхүү мэдээлэл нь олон жилийн судалгаа, нөр их хөдөлмөрийн үр дүнд бүтсэн оюуны өмч тул зөвшөөрөлгүй хуулбарлан олшруулахгүй байхыг хүсье. Бид уг судалгааг цаашид улам баяжуулан сайжруулах чиглэлээр тантай хамтран ажиллахад нээлттэй бөгөөд таатай байх болно.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Direct Contact Card in Footer -->
+                    <div class="w-full lg:w-auto shrink-0 p-4 rounded-xl bg-coal-950/90 border border-slate-700/80 flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-3">
+                        <div class="lg:text-right">
+                            <span class="text-[11px] uppercase tracking-wider text-emerald-400 font-semibold block">Төсөл боловсруулах & Хамтран ажиллах</span>
+                            <span class="text-xs text-slate-400">Би тү Би Консалтинг ХХК</span>
+                        </div>
+                        <a href="tel:99997073" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-coal-950 font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/20">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            <span>99997073</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-white via-slate-100 to-slate-300 flex items-center justify-center shrink-0">
+                        <svg class="w-6 h-6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M35 18 H65 V25 H53.5 V54 H46.5 V25 H35 Z" fill="#1e293b"/>
+                            <path d="M42 32 H28 C21 32 18 36 18 41 C18 45 21 48 25 49 C20 50 16 54 16 60 C16 66 21 71 29 71 H42 V32 Z" fill="#334155"/>
+                            <path d="M58 32 H72 C79 32 82 36 82 41 C82 45 79 48 75 49 C80 50 84 54 84 60 C84 66 79 71 71 71 H58 V32 Z" fill="#334155"/>
+                            <circle cx="50" cy="64" r="13" fill="#f8fafc" stroke="#059669" stroke-width="3"/>
+                            <path d="M44 64 L48 68 L56 60" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-bold text-slate-200">Би тү Би Консалтинг ХХК</span>
+                        <span class="mx-1.5 text-slate-600">|</span>
+                        <span>BToB Consulting — Нүүрсний Гүн Боловсруулалтын Каталоги</span>
+                    </div>
+                </div>
+                <div class="text-slate-500">© 2026 Би тү Би Консалтинг ХХК. Бүх эрх хуулиар хамгаалагдсан.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Product Detail Modal -->
+    <div id="productModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modalTitle" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div id="modalBackdrop" class="fixed inset-0 bg-coal-950/85 backdrop-blur-sm transition-opacity"></div>
+
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-6">
+            <div class="relative transform overflow-hidden rounded-3xl bg-slate-900 border border-slate-700 text-left shadow-2xl transition-all w-full max-w-3xl animate-fade-in">
+                <!-- Top Accent Bar -->
+                <div id="modalTopBar" class="h-2 w-full bg-gradient-to-r from-emerald-500 to-teal-400"></div>
+
+                <!-- Modal Header -->
+                <div class="px-6 pt-6 pb-4 sm:px-8 flex items-start justify-between gap-4 border-b border-slate-800">
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2 mb-2">
+                            <span id="modalCategoryBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-400">Технологи</span>
+                            <span id="modalValueBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-400">+450% өртөг</span>
+                        </div>
+                        <h3 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-white">Бүтээгдэхүүний нэр</h3>
+                        <p id="modalSubtitle" class="text-xs sm:text-sm text-slate-400 mt-0.5">English Name</p>
+                    </div>
+                    <button id="closeModalBtn" aria-label="Дэлгэрэнгүйг хаах" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="px-6 py-6 sm:px-8 space-y-6 max-h-[75vh] overflow-y-auto">
+                    <!-- Key Metrics Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/70">
+                            <div class="text-[11px] uppercase tracking-wider text-slate-400">Жишиг бүтээгдэхүүний үнэ</div>
+                            <div id="modalPrice" class="text-lg font-extrabold text-emerald-400 mt-1">$350 / тонн</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/70">
+                            <div class="text-[11px] uppercase tracking-wider text-slate-400">1 тн нүүрснээс гарах гарц</div>
+                            <div id="modalYield" class="text-lg font-extrabold text-white mt-1">0.72 тонн</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/70">
+                            <div class="text-[11px] uppercase tracking-wider text-slate-400">Шаардлагатай нүүрс</div>
+                            <div id="modalCoalType" class="text-sm font-bold text-amber-300 mt-1">Коксжих нүүрс</div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Ерөнхий тодорхойлолт</h4>
+                        <p id="modalDescription" class="text-sm text-slate-300 leading-relaxed"></p>
+                    </div>
+
+                    <!-- Step-by-Step Technology Process -->
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Технологийн процесс (Алхамчилсан бүдүүвч)</h4>
+                        <div id="modalSteps" class="grid grid-cols-1 sm:grid-cols-4 gap-2.5">
+                            <!-- Steps injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- End-Use Applications -->
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">Эцсийн хэрэглээний салбарууд</h4>
+                        <div id="modalApplications" class="flex flex-wrap gap-2">
+                            <!-- Tags injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Project Development & Cooperation CTA Box inside Modal -->
+                    <div class="rounded-2xl bg-gradient-to-br from-emerald-950/70 via-slate-800/90 to-slate-900 border border-emerald-500/35 p-5 sm:p-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div class="space-y-1.5">
+                                <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <span>Төсөл боловсруулах / Хамтран ажиллах</span>
+                                </div>
+                                <h4 class="text-base sm:text-lg font-extrabold text-white">Би тү Би Консалтинг ХХК</h4>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    Төсөл боловсруулах, ТЭЗҮ хийх болон хөрөнгө оруулалт, хамтын ажиллагааны чиглэлээр холбогдоно уу.
+                                </p>
+                            </div>
+
+                            <div class="flex flex-wrap sm:flex-col items-stretch sm:items-end gap-2 shrink-0">
+                                <a href="tel:99997073" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-coal-950 font-extrabold text-sm sm:text-base transition-all shadow-lg shadow-emerald-500/25">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                    <span>99997073</span>
+                                </a>
+                                <button type="button" onclick="copyPhoneNumber(this)" class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs font-semibold transition-all">
+                                    <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                    <span class="copy-label">Дугаар хуулах</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="px-6 py-4 sm:px-8 bg-slate-950/60 border-t border-slate-800 flex items-center justify-between">
+                    <span class="text-xs text-slate-400">Би тү Би Консалтинг ХХК • Утас: <strong class="text-slate-200">99997073</strong></span>
+                    <button onclick="closeModal()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors">
+                        Хаах
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product Data & Modal Controls
+        const productModal = document.getElementById('productModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalBackdrop = document.getElementById('modalBackdrop');
+
+        let modalTrigger;
+        function openModal(product) {
+            modalTrigger = document.activeElement;
+            if (!productModal) return;
+            if (product) {
+                document.getElementById('modalTitle').textContent = product.name || '';
+                document.getElementById('modalSubtitle').textContent = product.enName || '';
+                document.getElementById('modalCategoryBadge').textContent = product.categoryLabel || '';
+                document.getElementById('modalValueBadge').textContent = 'Жишиг загвар';
+                document.getElementById('modalPrice').textContent = product.price || '';
+                document.getElementById('modalYield').textContent = product.yield || '';
+                document.getElementById('modalCoalType').textContent = product.coalType || '';
+                document.getElementById('modalDescription').textContent = product.description || '';
+
+                const stepsContainer = document.getElementById('modalSteps');
+                if (stepsContainer && Array.isArray(product.steps)) {
+                    stepsContainer.innerHTML = product.steps.map((step, idx) => `
+                        <div class="p-3 rounded-xl bg-slate-800/70 border border-slate-700/70">
+                            <div class="text-[11px] font-bold text-emerald-400 mb-1">Алхам 0${idx + 1}</div>
+                            <div class="text-xs text-slate-200 font-medium leading-snug">${step}</div>
+                        </div>
+                    `).join('');
+                }
+
+                const appsContainer = document.getElementById('modalApplications');
+                if (appsContainer && Array.isArray(product.applications)) {
+                    appsContainer.innerHTML = product.applications.map(app => `
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs text-slate-200 font-medium">${app}</span>
+                    `).join('');
+                }
+            }
+            productModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            productModal.scrollTop = 0;
+            closeModalBtn.focus();
+        }
+
+        function closeModal() {
+            if (!productModal) return;
+            productModal.classList.add('hidden');
+            document.body.style.overflow = '';
+            modalTrigger?.focus();
+        }
+
+        if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+        if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && productModal && !productModal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // Copy Phone Number Helper
+        function copyPhoneNumber(btnElement) {
+            const phone = '99997073';
+            const tempInput = document.createElement('input');
+            tempInput.value = phone;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                const label = btnElement.querySelector('.copy-label');
+                if (label) {
+                    const originalText = label.textContent;
+                    label.textContent = 'Хуулагдлаа ✓';
+                    btnElement.classList.add('border-emerald-500', 'text-emerald-400');
+                    setTimeout(() => {
+                        label.textContent = originalText;
+                        btnElement.classList.remove('border-emerald-500', 'text-emerald-400');
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error('Copy failed', err);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // 16 Coal Processing Products Dataset
+        const products = [
+            // 1. Pyrolysis & Coking (4)
+            {
+                id: 1,
+                category: 'pyrolysis',
+                categoryLabel: 'Пиролиз ба Коксжуулалт',
+                badgeColor: 'amber',
+                name: 'Металлургийн Кокс',
+                enName: 'Metallurgical Coke',
+                price: '$320 – $380 / тн',
+                yield: '0.72 – 0.78 тн',
+                valueMultiplier: '4.5x өртөг',
+                coalType: 'Коксжих нүүрс (HCC / SSCC)',
+                shortDesc: 'Ган хайлуулах домэйн зуухны үндсэн түлш ба ангижруулагч хатуу нүүрстөрөгчийн материал.',
+                description: 'Коксжих нүүрсийг агааргүй орчинд 1000°C–1100°C температурт хуурай нэрэх (пиролиз) замаар дэгдэмхий бодисыг нь ялгаж гарган авдаг өндөр бат бэх, сүвэрхэг хатуу түлш. Гангийн үйлдвэрлэлийн гол түүхий эд.',
+                steps: ['Нүүрс угааж баяжуулах', 'Холимог бэлтгэн нягтруулах', '1050°C коксжуулах зуух', 'Хөргөх ба шигших'],
+                applications: ['Гангийн үйлдвэрлэл', 'Ширэм хайлуулах', 'Феррохайлш', 'Өнгөт металлурги']
+            },
+            {
+                id: 2,
+                category: 'pyrolysis',
+                categoryLabel: 'Пиролиз ба Коксжуулалт',
+                badgeColor: 'amber',
+                name: 'Хагас Кокс ба Утаагүй Түлш',
+                enName: 'Semi-Coke & Clean Briquette',
+                price: '$180 – $240 / тн',
+                yield: '0.65 – 0.72 тн',
+                valueMultiplier: '3.2x өртөг',
+                coalType: 'Хүрэн ба урт дөлт нүүрс',
+                shortDesc: 'Нам температурын пиролизоор гаргаж авсан утаагүй, өндөр илчлэгтэй цэвэр түлш ба феррохайлшийн түүхий эд.',
+                description: 'Бага ба дунд зэргийн хувиралтай нүүрсийг 500°C–700°C температурт боловсруулж хүхэр, дэгдэмхий бодисыг бууруулсан бүтээгдэхүүн. Агаарын бохирдлыг бууруулах шахмал түлш болон цахилгаан зуухны ангижруулагчаар ашиглана.',
+                steps: ['Бутлах ба хатаах', '600°C нам температурын пиролиз', 'Давирхай ба хийг ялгах', 'Хэвлэх ба хөргөх'],
+                applications: ['Ахуйн утаагүй түлш', 'Ферросилицийн үйлдвэр', 'Кальцийн карбид', 'Дулааны станц']
+            },
+            {
+                id: 3,
+                category: 'pyrolysis',
+                categoryLabel: 'Пиролиз ба Коксжуулалт',
+                badgeColor: 'amber',
+                name: 'Чулуун Нүүрсний Давирхай',
+                enName: 'Coal Tar & Pitch',
+                price: '$480 – $650 / тн',
+                yield: '0.04 – 0.08 тн',
+                valueMultiplier: '8.5x өртөг',
+                coalType: 'Коксжих болон хийн нүүрс',
+                shortDesc: 'Хөнгөн цагааны анод, электрод, замын битум болон үнэрт нүүрсустөрөгч гарган авах суурь шингэн.',
+                description: 'Коксжуулалт болон пиролизийн үед ялгарах хийг хөргөхөд конденсацлагдан үүсэх өтгөн хар шингэн. Түүнээс нафталин, антрацен, фенол болон хөнгөн цагааны үйлдвэрт зайлшгүй шаардлагатай электродын пек (Coal Tar Pitch) гарган авдаг.',
+                steps: ['Пиролизийн хий хөргөх', 'Давирхай тунаах ба усгүйжүүлэх', 'Вакуум нэрлэгээр фракцлах', 'Электродын пек боловсруулах'],
+                applications: ['Хөнгөн цагааны анод', 'Бал чулуун электрод', 'Замын хучилт', 'Мод хамгаалах тос']
+            },
+            {
+                id: 4,
+                category: 'pyrolysis',
+                categoryLabel: 'Пиролиз ба Коксжуулалт',
+                badgeColor: 'amber',
+                name: 'BTX Үнэрт Нүүрсустөрөгчид',
+                enName: 'Benzene, Toluene, Xylene',
+                price: '$950 – $1,250 / тн',
+                yield: '0.015 – 0.03 тн',
+                valueMultiplier: '16x өртөг',
+                coalType: 'Өндөр дэгдэмхийтэй нүүрс',
+                shortDesc: 'Бензол, толуол, ксилол — нийлэг утас, хуванцар, будаг лак, эмийн үйлдвэрлэлийн үндсэн уусгагч.',
+                description: 'Коксын хий болон хөнгөн давирхайг шингээж нэрэх замаар гарган авдаг ароматик нүүрсустөрөгчид. Орчин үеийн химийн аж үйлдвэрийн суурь түүхий эд юм.',
+                steps: ['Коксын хий цэвэршүүлэх', 'Бензол шингээгч тосоор угаах', 'Нэрэх ба хүхэргүйжүүлэх', 'Цэвэр BTX фракцлах'],
+                applications: ['Нийлэг даавуу (Нейлон)', 'Полистирол хуванцар', 'Будаг, уусгагч', 'Эмийн түүхий эд']
+            },
+
+            // 2. Gasification / Syngas (5)
+            {
+                id: 5,
+                category: 'gasification',
+                categoryLabel: 'Хийжүүлэлт (Syngas)',
+                badgeColor: 'emerald',
+                name: 'Метанол (Метилийн спирт)',
+                enName: 'Coal-to-Methanol (CTM)',
+                price: '$380 – $460 / тн',
+                yield: '0.50 – 0.58 тн',
+                valueMultiplier: '6.5x өртөг',
+                coalType: 'Хүрэн ба эрчим хүчний нүүрс',
+                shortDesc: 'Нүүрс-химийн үйлдвэрлэлийн гол гүүр бүтээгдэхүүн, цэвэр түлшний нэмэлт ба уусгагч.',
+                description: 'Нүүрсийг өндөр даралт, температурт хийжүүлж синтез хий (CO + H₂) болгон катализаторын тусламжтайгаар нийлэгжүүлж гарган авдаг шингэн химийн бүтээгдэхүүн.',
+                steps: ['Нүүрс хийжүүлэх (Gasifier)', 'Хий цэвэрлэх ба H₂/CO тохируулах', 'Метанолын каталитик синтез', 'Ректификацийн нэрлэг'],
+                applications: ['Автомашины түлш (M15/M85)', 'Формалдегид ба цавуу', 'Олефин үйлдвэрлэл', 'Уусгагч ба антифриз']
+            },
+            {
+                id: 6,
+                category: 'gasification',
+                categoryLabel: 'Хийжүүлэлт (Syngas)',
+                badgeColor: 'emerald',
+                name: 'Полиэтилен ба Полипропилен (MTO)',
+                enName: 'Coal-to-Olefins (PE / PP)',
+                price: '$1,100 – $1,450 / тн',
+                yield: '0.28 – 0.33 тн',
+                valueMultiplier: '19x өртөг',
+                coalType: 'Эрчим хүчний болон хүрэн нүүрс',
+                shortDesc: 'Бүх төрлийн хуванцар сав баглаа боодол, хоолой, автомашины эд ангийн үндсэн полимер түүхий эд.',
+                description: 'Нүүрснээс гаргаж авсан метанолыг MTO (Methanol-to-Olefins) технологиор этилен, пропилен болгон хувиргаж, улмаар полимержүүлэн хуванцар үрэл гарган авдаг.',
+                steps: ['Нүүрс → Синтез хий', 'Метанол нийлэгжүүлэх', 'MTO реактор (Этилен/Пропилен)', 'Полимержүүлэх ба үрэлжүүлэх'],
+                applications: ['Хуванцар сав, хальс', 'Ус, хийн хоолой', 'Автомашины эд анги', 'Нэхмэлийн мяндас']
+            },
+            {
+                id: 7,
+                category: 'gasification',
+                categoryLabel: 'Хийжүүлэлт (Syngas)',
+                badgeColor: 'emerald',
+                name: 'Аммиак ба Карбамид Бордоо',
+                enName: 'Ammonia & Urea Fertilizer',
+                price: '$420 – $550 / тн',
+                yield: '0.55 – 0.65 тн',
+                valueMultiplier: '7.5x өртөг',
+                coalType: 'Хүрэн ба чулуун нүүрс',
+                shortDesc: 'Хөдөө аж ахуй, газар тариалангийн ургацыг нэмэгдүүлэх азотын өндөр агууламжтай эрдэс бордоо.',
+                description: 'Нүүрсний хийжүүлэлтээс гаргаж авсан устөрөгчийг агаарын азоттой урвалд оруулж аммиак, улмаар нүүрстөрөгчийн давхар исэлтэй нэгтгэн карбамид (мочевин) бордоо үйлдвэрлэнэ.',
+                steps: ['Нүүрс хийжүүлж H₂ ялгах', 'Хабер-Бошийн аммиакийн синтез', 'CO₂-той урвалд оруулах', 'Карбамид үрэлжүүлэх'],
+                applications: ['Газар тариалангийн бордоо', 'Мал аж ахуйн тэжээлийн нэмэлт', 'AdBlue утаа саармагжуулагч', 'Давирхай ба цавуу']
+            },
+            {
+                id: 8,
+                category: 'gasification',
+                categoryLabel: 'Хийжүүлэлт (Syngas)',
+                badgeColor: 'emerald',
+                name: 'Цэвэр Устөрөгч (Цэнхэр H₂)',
+                enName: 'Coal-to-Hydrogen with CCUS',
+                price: '$2,200 – $3,000 / тн',
+                yield: '0.11 – 0.14 тн',
+                valueMultiplier: '38x өртөг',
+                coalType: 'Бүх төрлийн нүүрс',
+                shortDesc: 'Ирээдүйн ногоон эрчим хүч, түлшний эсийн тээвэр болон гангийн үйлдвэрлэлийн цэвэр түлш.',
+                description: 'Нүүрсийг хийжүүлж усны уураар баяжуулан (Water-Gas Shift) 99.999% цэвэршилттэй устөрөгч ялган авч, ялгарсан CO₂-ийг барьж хадгалах (CCUS) дэвшилтэт технологи.',
+                steps: ['Хүчилтөрөгчийн хийжүүлэлт', 'CO хувиргах урвал (WGS)', 'CO₂ барих ба шахах (CCUS)', 'PSA өндөр цэвэршүүлэлт'],
+                applications: ['Устөрөгчийн хөдөлгүүрт машин', 'Ногоон ган үйлдвэрлэл', 'Эрчим хүч хуримтлуур', 'Нефть боловсруулах']
+            },
+            {
+                id: 9,
+                category: 'gasification',
+                categoryLabel: 'Хийжүүлэлт (Syngas)',
+                badgeColor: 'emerald',
+                name: 'Синтетик Байгалийн Хий (SNG)',
+                enName: 'Substitute Natural Gas (CH₄)',
+                price: '$350 – $480 / 1000м³',
+                yield: '320 – 380 м³',
+                valueMultiplier: '5.5x өртөг',
+                coalType: 'Хүрэн нүүрс (Лигнит)',
+                shortDesc: 'Хотын дулаан хангамж, ахуйн хэрэглээ болон хийн түлшний хоолойд шууд нийлүүлэх метан хий.',
+                description: 'Хүрэн нүүрсийг хийжүүлэн цэвэршүүлж метанацийн (Methanation) урвалаар байгалийн хийтэй ижил найрлагатай (95%+ CH₄) хий гарган авах технологи.',
+                steps: ['Хүрэн нүүрс хийжүүлэх', 'Хүхэр ба CO₂ цэвэрлэх', 'Каталитик метанаци (CH₄)', 'Шингэрүүлэх (LNG) эсвэл хоолойд шахах'],
+                applications: ['Хотын хийн хангамж', 'LNG тээврийн түлш', 'Аж үйлдвэрийн зуух', 'Цахилгаан станц']
+            },
+
+            // 3. Liquefaction / CTL (2)
+            {
+                id: 10,
+                category: 'liquefaction',
+                categoryLabel: 'Шингэрүүлэлт (CTL)',
+                badgeColor: 'sky',
+                name: 'Синтетик Дизель ба Бензин',
+                enName: 'CTL Ultra-Clean Diesel & Gasoline',
+                price: '$850 – $1,050 / тн',
+                yield: '0.32 – 0.38 тн',
+                valueMultiplier: '14x өртөг',
+                coalType: 'Хүрэн ба урт дөлт нүүрс',
+                shortDesc: 'Хүхэргүй, цетаны тоо өндөртэй, Евро-6 стандартын хөдөлгүүрийн шингэн түлш.',
+                description: 'Шууд (DCL) болон шууд бус Фишер-Тропшийн (ICL) синтезийн аргаар нүүрсийг шингэрүүлж нефтийн гаралтай түлшнээс илүү цэвэр шаталттай дизель, бензин үйлдвэрлэнэ.',
+                steps: ['Нүүрс хийжүүлэх эсвэл устөрөгчжүүлэх', 'Фишер-Тропшийн синтез', 'Гидрокрекинг ба изомеризаци', 'Дизель, бензин ялгах'],
+                applications: ['Уул уурхайн хүнд машин', 'Авто тээврийн хэрэгсэл', 'Төмөр замын зүтгүүр', 'Стратегийн түлшний нөөц']
+            },
+            {
+                id: 11,
+                category: 'liquefaction',
+                categoryLabel: 'Шингэрүүлэлт (CTL)',
+                badgeColor: 'sky',
+                name: 'Онгоцны Түлш (Jet A-1) & Суурь Тос',
+                enName: 'CTL Aviation Fuel & Base Oils',
+                price: '$1,050 – $1,350 / тн',
+                yield: '0.22 – 0.28 тн',
+                valueMultiplier: '17x өртөг',
+                coalType: 'Чанартай чулуун ба хүрэн нүүрс',
+                shortDesc: '-47°C хүйтэнд царцдаггүй агаарын тээврийн түлш ба дээд зэргийн нийлэг тосолгооны суурь тос.',
+                description: 'Фишер-Тропшийн синтезийн дунд болон хүнд фракцийг гүн боловсруулж олон улсын иргэний нисэхийн стандартад нийцсэн Jet A-1 түлш болон Group III+ синтетик тос гарган авдаг.',
+                steps: ['Синтез хий бэлтгэх', 'Кобальт катализаторын синтез', 'Изо-деваксинг (Царцах цэг бууруулах)', 'Нисэхийн чанарын баталгаажуулалт'],
+                applications: ['Иргэний агаарын тээвэр', 'Синтетик моторын тос', 'Гидравлик шингэн', 'Тусгай зориулалтын техник']
+            },
+
+            // 4. Advanced Materials & Byproducts (5)
+            {
+                id: 12,
+                category: 'advanced',
+                categoryLabel: 'Дэвшилтэт Материал & Бусад',
+                badgeColor: 'purple',
+                name: 'Идэвхжүүлсэн Нүүрс',
+                enName: 'Activated Carbon',
+                price: '$1,500 – $2,800 / тн',
+                yield: '0.35 – 0.45 тн',
+                valueMultiplier: '32x өртөг',
+                coalType: 'Антрацит ба чулуун нүүрс',
+                shortDesc: 'Асар их дотоод гадаргуутай, алт ялгах, ус болон агаар шүүх өндөр шингээгч материал.',
+                description: 'Нүүрсийг карбонжуулж 850°C–950°C температурт усны уур эсвэл химийн бодисоор идэвхжүүлэн нано хэмжээст сүвэрхэг бүтэц үүсгэсэн өндөр үнэт бүтээгдэхүүн.',
+                steps: ['Бутлах ба барьцалдуулан хэвлэх', '600°C карбонжуулалт', '900°C уураар идэвхжүүлэх', 'Угаах, хатаах, ангилах'],
+                applications: ['Алт баяжуулах (CIP/CIL)', 'Ундны ус цэвэршүүлэх', 'Агаар, утаа шүүгч', 'Эм ба хүнсний үйлдвэр']
+            },
+            {
+                id: 13,
+                category: 'advanced',
+                categoryLabel: 'Дэвшилтэт Материал & Бусад',
+                badgeColor: 'purple',
+                name: 'Нүүрстөрөгчийн Мяндас',
+                enName: 'Coal-Pitch Carbon Fiber',
+                price: '$18,000 – $35,000 / тн',
+                yield: '0.03 – 0.05 тн',
+                valueMultiplier: '120x өртөг',
+                coalType: 'Коксжих ба давирхайн нүүрс',
+                shortDesc: 'Гангаас 5 дахин бат бэх, 4 дахин хөнгөн сансар, салхин сэнс, цахилгаан машины композит материал.',
+                description: 'Чулуун нүүрсний давирхайг мезофазын пек болгон боловсруулж, нарийн утас болгон ээрээд 1500°C–2500°C температурт карбонжуулж гарган авдаг өндөр технологийн бүтээгдэхүүн.',
+                steps: ['Нүүрсний давирхай цэвэршүүлэх', 'Мезофазын пек үүсгэх', 'Хайлмал ээрэх ба исэлдүүлэх', 'Өндөр температурын карбонжуулалт'],
+                applications: ['Салхин цахилгаан станцын далбаа', 'Онгоц, сансрын хөлөг', 'Цахилгаан автомашины их бие', 'Спорт хэрэгсэл']
+            },
+            {
+                id: 14,
+                category: 'advanced',
+                categoryLabel: 'Дэвшилтэт Материал & Бусад',
+                badgeColor: 'purple',
+                name: 'Графен ба Лити-Ион Батарей Анод',
+                enName: 'Coal-Derived Graphene & Battery Anode',
+                price: '$12,000 – $45,000 / тн',
+                yield: '0.08 – 0.15 тн',
+                valueMultiplier: '115x өртөг',
+                coalType: 'Антрацит ба өндөр нүүрстөрөгчит нүүрс',
+                shortDesc: 'Цахилгаан автомашины батарей, суперконденсатор болон нано-электроникийн үндсэн материал.',
+                description: 'Нүүрсний байгалийн ароматик цагираг бүтцийг ашиглан хямд зардлаар хиймэл бал чулуу (Synthetic Graphite) болон графены нано ялтас гарган авах дэвшилтэт технологи.',
+                steps: ['Нүүрсийг хүчлээр эрдэсгүйжүүлэх', 'Химийн ба хэт авианы хуулалт', '2800°C графитжуулах', 'Нано бүрхүүл ба ангилал'],
+                applications: ['EV батарейн анод материал', 'Суперконденсатор', 'Дамжуулагч бэх, бүрхүүл', 'Бат бэх композит']
+            },
+            {
+                id: 15,
+                category: 'advanced',
+                categoryLabel: 'Дэвшилтэт Материал & Бусад',
+                badgeColor: 'purple',
+                name: 'Гумины Хүчил ба Органик Бордоо',
+                enName: 'Humic Acid & Potassium Humate',
+                price: '$450 – $750 / тн',
+                yield: '0.45 – 0.60 тн',
+                valueMultiplier: '9.5x өртөг',
+                coalType: 'Исэлдсэн хүрэн нүүрс (Леонардит)',
+                shortDesc: 'Хөрсний үржил шимийг сэргээх, цөлжилттэй тэмцэх, ургамлын өсөлтийг дэмжих био-идэвхт бүтээгдэхүүн.',
+                description: 'Газрын гадаргад ойр исэлдсэн хүрэн нүүрсийг шүлтийн уусмалаар хандлан ялгаж авдаг байгалийн органик хүчил. Монголын хүрэн нүүрсний ордуудад нэн тохиромжтой.',
+                steps: ['Исэлдсэн хүрэн нүүрс бутлах', 'Калийн шүлтээр хандлах', 'Центрифугээр тунадас ялгах', 'Шүршиж хатаах (Хуурай нунтаг)'],
+                applications: ['Органик газар тариалан', 'Цөлжилт, уурхайн нөхөн сэргээлт', 'Мал, шувууны тэжээл', 'Өрөмдлөгийн шаврын нэмэлт']
+            },
+            {
+                id: 16,
+                category: 'advanced',
+                categoryLabel: 'Дэвшилтэт Материал & Бусад',
+                badgeColor: 'purple',
+                name: 'Газрын Ховор Элемент & Барилгын Материал',
+                enName: 'Rare Earths (REE), Germanium & Geopolymer',
+                price: '$600 – $2,500 / тн',
+                yield: '0.15 – 0.85 тн',
+                valueMultiplier: '15x өртөг',
+                coalType: 'Нүүрсний үнс ба шаарга (Fly Ash)',
+                shortDesc: 'Нүүрсний үнснээс германи, галли, газрын ховор элемент ялгах ба цемент орлох геополимер бетон.',
+                description: 'Хаягдалгүй технологийн хүрээнд нүүрсний үнс, шааргаас үнэт металл (Ge, Ga, Li, REE) химийн аргаар ялган авч, үлдэгдэл эрдсээр хөнгөн дүүргэгч, геополимер тоосго хийнэ.',
+                steps: ['Үнс, шаарга соронзон ангилах', 'Хүчил/шүлтийн уусгалт (Leaching)', 'Ион солилцоогоор REE/Ge ялгах', 'Үлдэгдлээр геополимер үйлдвэрлэх'],
+                applications: ['Хагас дамжуулагч (Германи)', 'Сэргээгдэх эрчим хүчний соронз', 'Эко цемент ба тоосго', 'Дулаан тусгаарлагч хөвөн']
+            }
+        ];
+
+        // State
+        let currentTab = 'all';
+        let searchQuery = '';
+
+        // DOM Elements
+        const productGrid = document.getElementById('productGrid');
+        const emptyState = document.getElementById('emptyState');
+        const searchInput = document.getElementById('searchInput');
+        const clearSearchBtn = document.getElementById('clearSearchBtn');
+        const resultsCountText = document.getElementById('resultsCountText');
+        const tabButtons = document.querySelectorAll('.tab-btn');
+
+        // Color badge helper
+        function getBadgeClasses(color) {
+            const map = {
+                amber: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
+                emerald: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
+                sky: 'bg-sky-500/15 text-sky-400 border-sky-500/30',
+                purple: 'bg-purple-500/15 text-purple-400 border-purple-500/30'
+            };
+            return map[color] || map.emerald;
+        }
+
+        // Render Product Cards
+        function renderProducts() {
+            const filtered = products.filter(item => {
+                const matchesTab = currentTab === 'all' || item.category === currentTab;
+                const q = searchQuery.toLowerCase().trim();
+                const matchesQuery = !q ||
+                    item.name.toLowerCase().includes(q) ||
+                    item.enName.toLowerCase().includes(q) ||
+                    item.shortDesc.toLowerCase().includes(q) ||
+                    item.coalType.toLowerCase().includes(q) ||
+                    item.applications.some(app => app.toLowerCase().includes(q));
+                return matchesTab && matchesQuery;
+            });
+
+            if (resultsCountText) {
+                resultsCountText.innerHTML = `Нийт <strong class="text-white">${filtered.length}</strong> бүтээгдэхүүн харуулж байна`;
+            }
+
+            if (filtered.length === 0) {
+                productGrid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            productGrid.innerHTML = filtered.map(item => `
+                <div role="button" tabindex="0" aria-haspopup="dialog" onclick="openModalById(${item.id})" class="glass-card rounded-2xl p-5 flex flex-col justify-between cursor-pointer group transition-all duration-300 hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="px-2.5 py-1 rounded-lg text-[11px] font-bold border ${getBadgeClasses(item.badgeColor)}">
+                                ${item.categoryLabel}
+                            </span>
+                            <span class="px-2 py-0.5 rounded-md bg-slate-800 text-amber-400 text-[11px] font-extrabold">
+                                Жишиг загвар
+                            </span>
+                        </div>
+
+                        <h3 class="text-lg font-extrabold text-white group-hover:text-emerald-400 transition-colors leading-snug">
+                            ${item.name}
+                        </h3>
+                        <p class="text-xs text-slate-400 font-medium mb-3">${item.enName}</p>
+                        <p class="text-xs text-slate-300 leading-relaxed line-clamp-3 mb-4">
+                            ${item.shortDesc}
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800/80 space-y-2.5">
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="text-slate-400">Жишиг үнэ:</span>
+                            <span class="font-bold text-emerald-400">${item.price}</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="text-slate-400">Гарц (1 тн нүүрс):</span>
+                            <span class="font-semibold text-slate-200">${item.yield}</span>
+                        </div>
+                        <div class="pt-1 flex items-center justify-between text-xs font-bold text-emerald-400 group-hover:translate-x-1 transition-transform">
+                            <span>Дэлгэрэнгүй & Төсөл</span>
+                            <span>→</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openModalById(id) {
+            const product = products.find(p => p.id === id);
+            if (product) openModal(product);
+        }
+
+        // Tab Switching
+        function filterByTab(tabName) {
+            currentTab = tabName;
+            tabButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.tab === tabName)));
+            tabButtons.forEach(btn => {
+                if (btn.dataset.tab === tabName) {
+                    btn.classList.add('active', 'bg-emerald-500', 'text-coal-950', 'shadow-md', 'shadow-emerald-500/20');
+                    btn.classList.remove('bg-slate-800/80', 'text-slate-300', 'hover:bg-slate-700');
+                } else {
+                    btn.classList.remove('active', 'bg-emerald-500', 'text-coal-950', 'shadow-md', 'shadow-emerald-500/20');
+                    btn.classList.add('bg-slate-800/80', 'text-slate-300', 'hover:bg-slate-700');
+                }
+            });
+            renderProducts();
+            const catalogEl = document.getElementById('catalog-section');
+            if (catalogEl && window.scrollY < catalogEl.offsetTop - 100) {
+                catalogEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => filterByTab(btn.dataset.tab));
+        });
+
+        // Search Handling
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                if (clearSearchBtn) {
+                    clearSearchBtn.classList.toggle('hidden', !searchQuery);
+                }
+                renderProducts();
+            });
+        }
+
+        if (clearSearchBtn) {
+            clearSearchBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                searchQuery = '';
+                clearSearchBtn.classList.add('hidden');
+                renderProducts();
+            });
+        }
+
+        function resetFilters() {
+            if (searchInput) searchInput.value = '';
+            searchQuery = '';
+            if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
+            filterByTab('all');
+        }
+
+        // Schematic Diagram View Switcher
+        function switchSchematicView(mode) {
+            const treeView = document.getElementById('schematic-view-tree');
+            const hexView = document.getElementById('schematic-view-hex');
+            const btnTree = document.getElementById('btn-view-tree');
+            const btnHex = document.getElementById('btn-view-hex');
+
+            if (!treeView || !hexView || !btnTree || !btnHex) return;
+
+            btnTree.setAttribute('aria-pressed', String(mode === 'tree'));
+            btnHex.setAttribute('aria-pressed', String(mode !== 'tree'));
+            if (mode === 'tree') {
+                treeView.classList.remove('hidden');
+                hexView.classList.add('hidden');
+                btnTree.classList.add('bg-emerald-500', 'text-coal-950', 'shadow-md');
+                btnTree.classList.remove('text-slate-300', 'hover:text-white');
+                btnHex.classList.remove('bg-emerald-500', 'text-coal-950', 'shadow-md');
+                btnHex.classList.add('text-slate-300', 'hover:text-white');
+            } else {
+                hexView.classList.remove('hidden');
+                treeView.classList.add('hidden');
+                btnHex.classList.add('bg-emerald-500', 'text-coal-950', 'shadow-md');
+                btnHex.classList.remove('text-slate-300', 'hover:text-white');
+                btnTree.classList.remove('bg-emerald-500', 'text-coal-950', 'shadow-md');
+                btnTree.classList.add('text-slate-300', 'hover:text-white');
+            }
+        }
+
+        // Value & Yield Calculator Logic
+        const coalRange = document.getElementById('coalRange');
+        const coalAmountBadge = document.getElementById('coalAmountBadge');
+        const rawPriceSelect = document.getElementById('rawPriceSelect');
+        const pathwaySelect = document.getElementById('pathwaySelect');
+
+        const pathways = {
+            coking: {
+                name: 'Кокс-Химийн Цогцолбор',
+                outputs: [
+                    { label: 'Металлургийн кокс', ratio: 0.74, unit: 'тн', pricePerUnit: 350 },
+                    { label: 'Чулуун нүүрсний давирхай', ratio: 0.05, unit: 'тн', pricePerUnit: 550 },
+                    { label: 'BTX үнэрт нүүрсустөрөгч', ratio: 0.02, unit: 'тн', pricePerUnit: 1100 },
+                    { label: 'Коксын хий / Аммиак', ratio: 0.08, unit: 'тн', pricePerUnit: 220 }
+                ]
+            },
+            methanol: {
+                name: 'Хийжүүлэлт → Метанол & Олефин',
+                outputs: [
+                    { label: 'Полиэтилен / Полипропилен (PE/PP)', ratio: 0.25, unit: 'тн', pricePerUnit: 1250 },
+                    { label: 'Цэвэр метанол (худалдаалах)', ratio: 0.14, unit: 'тн', pricePerUnit: 420 },
+                    { label: 'Элементийн хүхэр ба дагалдах хий', ratio: 0.04, unit: 'тн', pricePerUnit: 180 }
+                ]
+            },
+            fertilizer: {
+                name: 'Хийжүүлэлт → Аммиак & Карбамид',
+                outputs: [
+                    { label: 'Карбамид бордоо (Urea)', ratio: 0.58, unit: 'тн', pricePerUnit: 480 },
+                    { label: 'Шингэн аммиак', ratio: 0.07, unit: 'тн', pricePerUnit: 520 },
+                    { label: 'Хүхэр ба үнсний барилгын материал', ratio: 0.15, unit: 'тн', pricePerUnit: 90 }
+                ]
+            },
+            ctl: {
+                name: 'Нүүрс Шингэрүүлэлт (CTL)',
+                outputs: [
+                    { label: 'Синтетик дизель (Евро-6)', ratio: 0.24, unit: 'тн', pricePerUnit: 950 },
+                    { label: 'Онгоцны Jet A-1 түлш', ratio: 0.10, unit: 'тн', pricePerUnit: 1180 },
+                    { label: 'Нафта ба шингэрүүлсэн хий (LPG)', ratio: 0.08, unit: 'тн', pricePerUnit: 680 }
+                ]
+            },
+            carbon: {
+                name: 'Дэвшилтэт Карбон Материал',
+                outputs: [
+                    { label: 'Идэвхжүүлсэн нүүрс', ratio: 0.30, unit: 'тн', pricePerUnit: 1950 },
+                    { label: 'Нүүрстөрөгчийн мяндас (Carbon Fiber)', ratio: 0.025, unit: 'тн', pricePerUnit: 22000 },
+                    { label: 'Гумины хүчил / Утаагүй түлш', ratio: 0.22, unit: 'тн', pricePerUnit: 450 }
+                ]
+            }
+        };
+
+        function formatMoney(num) {
+            return '$' + Math.round(num).toLocaleString('en-US');
+        }
+
+        function setCoalAmount(val) {
+            if (coalRange) {
+                coalRange.value = val;
+                updateCalculator();
+            }
+        }
+
+        function updateCalculator() {
+            if (!coalRange || !rawPriceSelect || !pathwaySelect) return;
+
+            const tons = parseFloat(coalRange.value) || 1000;
+            const rawPrice = parseFloat(rawPriceSelect.value) || 65;
+            const costPerTon = Math.max(0, Math.min(100000, Number(document.getElementById('processingCost').value) || 0));
+            const processingCost = tons * costPerTon;
+            const pathKey = pathwaySelect.value || 'coking';
+            const path = pathways[pathKey];
+
+            coalAmountBadge.textContent = tons.toLocaleString('en-US') + ' тн';
+            document.getElementById('selectedPathName').textContent = path.name;
+
+            const rawRevenue = tons * rawPrice;
+            let processedRevenue = 0;
+
+            const breakdownHTML = path.outputs.map(out => {
+                const qty = tons * out.ratio;
+                const val = qty * out.pricePerUnit;
+                processedRevenue += val;
+                return `
+                    <div class="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/70 flex items-center justify-between gap-2">
+                        <div>
+                            <div class="text-xs font-bold text-white">${out.label}</div>
+                            <div class="text-[11px] text-slate-400 mt-0.5">${qty.toLocaleString('en-US', { maximumFractionDigits: 1 })} ${out.unit} × $${out.pricePerUnit}</div>
+                        </div>
+                        <div class="text-sm font-extrabold text-emerald-400 shrink-0">${formatMoney(val)}</div>
+                    </div>
+                `;
+            }).join('');
+
+            const multiplier = rawRevenue > 0 ? (processedRevenue / rawRevenue) : 0;
+            const netGain = processedRevenue - rawRevenue;
+            document.getElementById('processingCostTotal').textContent = formatMoney(processingCost);
+            document.getElementById('operatingDifference').textContent = formatMoney(netGain - processingCost);
+
+            document.getElementById('multiplierDisplay').textContent = multiplier.toFixed(1) + 'x дахин';
+            document.getElementById('netGainDisplay').textContent = '+' + formatMoney(netGain) + ' нэмэлт орлого';
+            document.getElementById('rawRevenueText').textContent = formatMoney(rawRevenue);
+            document.getElementById('processedRevenueText').textContent = formatMoney(processedRevenue);
+
+            const rawPercent = Math.min(100, Math.max(4, (rawRevenue / processedRevenue) * 100));
+            document.getElementById('rawBar').style.width = rawPercent.toFixed(1) + '%';
+            document.getElementById('processedBar').style.width = '100%';
+
+            document.getElementById('breakdownList').innerHTML = breakdownHTML;
+        }
+
+        if (coalRange) coalRange.addEventListener('input', updateCalculator);
+        if (rawPriceSelect) rawPriceSelect.addEventListener('change', updateCalculator);
+        if (pathwaySelect) pathwaySelect.addEventListener('change', updateCalculator);
+
+        document.getElementById('processingCost').addEventListener('input', updateCalculator);
+
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        function closeMenu() {
+            mobileNav.classList.add('hidden');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+        menuToggle.addEventListener('click', () => {
+            const open = menuToggle.getAttribute('aria-expanded') !== 'true';
+            menuToggle.setAttribute('aria-expanded', String(open));
+            mobileNav.classList.toggle('hidden', !open);
+        });
+        mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeMenu();
+            if (event.key === 'Tab' && !productModal.classList.contains('hidden')) {
+                const focusable = [...productModal.querySelectorAll('button, a[href], input')].filter(element => element.offsetParent !== null);
+                const first = focusable[0];
+                const last = focusable.at(-1);
+                if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+                else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+            }
+        });
+        document.addEventListener('keydown', event => {
+            if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[role="button"][onclick]')) {
+                event.preventDefault();
+                event.target.click();
+            }
+        });
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            tabButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.tab === 'all')));
+            updateCalculator();
+        });
+    </script>
+</body>
+</html>

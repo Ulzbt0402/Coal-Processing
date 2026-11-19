@@ -72,6 +72,17 @@
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
         }
+            .analysis-tab { background: #1e293b; color: #cbd5e1; }
+        .analysis-tab[aria-selected="true"] { background: #10b981; color: #090d16; }
+        @media print {
+            body.print-margin > :not(#calculator-section) { display: none !important; }
+            body.print-margin #calculator-section { padding: 0; border: 0; }
+            body.print-margin #calculator-section > div > :not(#margin-panel) { display: none !important; }
+            body.print-margin #margin-panel { display: block !important; }
+            body.print-margin #margin-panel button,
+            body.print-margin #margin-panel > a { display: none !important; }
+            body.print-margin #poster-section { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+        }
     </style>
 </head>
 <body class="bg-coal-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-white">
@@ -588,6 +599,11 @@
                 <p class="text-slate-400 text-sm mt-2">Түүхий нүүрсний хэмжээ болон боловсруулах технологийн чиглэлийг сонгож, түүхий эдээр нь зарсантай харьцуулахад хэр хэмжээний эцсийн бүтээгдэхүүн ба нэмүү өртөг бий болохыг тооцоолно уу.</p>
             </div>
 
+            <div id="calculator-tabs" role="tablist" aria-label="Нүүрсний эдийн засгийн шинжилгээ" class="mb-8 grid grid-cols-1 gap-2 rounded-2xl border border-slate-700 bg-slate-950/70 p-2 sm:grid-cols-2">
+                <button type="button" role="tab" id="yield-tab" aria-controls="yield-panel" aria-selected="true" tabindex="0" class="analysis-tab rounded-xl px-4 py-3 text-sm font-bold">Өртөг ба гарцын тооцоолуур</button>
+                <button type="button" role="tab" id="margin-tab" aria-controls="margin-panel" aria-selected="false" tabindex="-1" class="analysis-tab rounded-xl px-4 py-3 text-sm font-bold">Нөөц, бүтээгдэхүүн & Ашгийн маржин</button>
+            </div>
+            <div id="yield-panel" role="tabpanel" aria-labelledby="yield-tab" tabindex="0">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <!-- Controls Panel -->
                 <div class="lg:col-span-5 glass-card rounded-2xl p-6 sm:p-8 space-y-6">
@@ -685,6 +701,260 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            </div>
+            <div id="margin-panel" role="tabpanel" aria-labelledby="margin-tab" tabindex="0" hidden>
+    <div id="poster-section" class="relative">
+        <div class="absolute inset-0 hero-grid opacity-40 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold mb-2">
+                        <span>Эх загварын жишиг хувилбар</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-4xl font-extrabold text-white">Нүүрсний Нөөц, Бүтээгдэхүүн & Ашгийн Маржин</h3>
+                    <p class="text-slate-400 text-sm mt-2 max-w-2xl">
+                        Нүүрсний нөөц, бүтээгдэхүүний төрөл, хоёр өөр боловсруулалтын замналын маржийг харьцуулсан эх загвар. 18%, 64%, 76% болон орлогын өсөлт нь жишиг таамаглал бөгөөд дээрх тооцоолуурын бодит оролтоос тооцогдоогүй.
+                    </p>
+                </div>
+
+                <!-- Interactive Scenario Switcher for Poster -->
+                <div class="flex flex-wrap items-center gap-2 bg-slate-900/90 p-1.5 rounded-2xl border border-slate-700/80">
+                    <button type="button" id="poster-mode-chemical" aria-pressed="true" onclick="switchPosterScenario('chemical')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-500 text-coal-950 shadow transition-all">
+                        Нүүрс-Хими (Метанол/Олефин)
+                    </button>
+                    <button type="button" id="poster-mode-carbon" aria-pressed="false" onclick="switchPosterScenario('carbon')" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:text-white transition-all">
+                        Дэвшилтэт Карбон (Мяндас/Графен)
+                    </button>
+                    <button type="button" onclick="printMarginAnalysis()" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-600/60 transition-all flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                        <span>Хэвлэх / PDF</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Advertising Poster Canvas Card -->
+            <div class="rounded-3xl bg-gradient-to-br from-slate-900 via-[#0d1b2a] to-slate-950 border-2 border-emerald-500/35 shadow-2xl shadow-emerald-950/50 overflow-hidden">
+                <!-- Poster Top Banner -->
+                <div class="bg-gradient-to-r from-emerald-600/20 via-teal-500/15 to-amber-500/20 border-b border-slate-700/80 px-6 py-5 sm:px-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-[11px] font-extrabold uppercase tracking-widest text-emerald-400">Би тү Би Консалтинг ХХК • Нүүрс-Химийн Сурталчилгааны Загвар</span>
+                        <h3 class="text-xl sm:text-3xl font-extrabold text-white mt-1">
+                            ТҮҮХИЙ НҮҮРСИЙГ БҮТЭН БОЛОВСРУУЛБАЛ <span class="text-amber-400">АШГИЙН МАРЖИН ХЭДЭН ХУВЬ</span> ВЭ?
+                        </h3>
+                    </div>
+                    <div class="flex items-center gap-3 bg-coal-950/70 px-4 py-2.5 rounded-2xl border border-slate-700/80 shrink-0">
+                        <div class="text-right">
+                            <div class="text-[10px] text-slate-400 uppercase">Холбоо барих</div>
+                            <div class="text-sm font-extrabold text-emerald-400">99997073</div>
+                        </div>
+                        <a href="tel:99997073" class="px-3 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-coal-950 font-bold text-xs transition-colors">
+                            Залгах
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Poster Body Grid: 3 Core Pillars -->
+                <div class="p-6 sm:p-10 space-y-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Pillar 1: Coal Reserves (Тонны Нөөц) -->
+                        <div class="rounded-2xl bg-slate-900/90 border border-amber-500/35 p-6 flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute -right-6 -top-6 w-28 h-28 bg-amber-500/10 rounded-full blur-2xl"></div>
+                            <div>
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-400 text-[11px] font-extrabold uppercase">01. Нүүрсний Нөөц</span>
+                                    <div class="flex items-center gap-1.5 relative group/source">
+                                        <span class="text-xs font-bold text-slate-400">Түүхэн мэдээлэл</span>
+                                        <a href="https://www.uih.mn/upload/sudalgaa/files/413_4285785.pdf" target="_blank" rel="noopener noreferrer" title="Нөөцийн түүхэн мэдээлэл — судалгааны эмхэтгэл (PDF)" aria-label="Эх сурвалж руу шилжих" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-amber-400 text-amber-300 hover:text-coal-950 border border-amber-500/40 flex items-center justify-center text-xs font-extrabold transition-all shadow-sm">
+                                            ?
+                                        </a>
+                                        <span class="pointer-events-none opacity-0 group-hover/source:opacity-100 transition-opacity duration-150 absolute right-0 top-8 z-20 whitespace-nowrap px-2.5 py-1 rounded-lg bg-slate-950 text-amber-300 border border-amber-500/40 text-[11px] font-bold shadow-xl">
+                                            Эх сурвалж
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                                    ~32.6 <span class="text-lg font-bold text-amber-400">тэрбум тн</span>
+                                </div>
+                                <p class="text-xs text-amber-300/90 font-semibold mt-1">
+                                    Эх загварт ашигласан геологийн нөөц ба таамаг баялгийн түүхэн тооцоо.
+                                </p>
+                                <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                                    32.6 тэрбум тонн нь 2019 оны мэдээлэлд дурдсан геологийн нөөц. ~150 тэрбум тонн нь эх загварын таамаг үнэлгээ. Нөөц, таамаг баялаг нь өөр ангилалтай бөгөөд эдгээрийг хооронд нь нэмэхгүй.
+                                </p>
+                            </div>
+                            <div class="mt-5 pt-4 border-t border-slate-800 grid grid-cols-2 gap-2 text-xs">
+                                <div class="bg-slate-950/70 p-2.5 rounded-xl border border-slate-800">
+                                    <div class="text-[10px] text-slate-400">Батлагдсан нөөц</div>
+                                    <div class="font-bold text-white">~32.6 тэрбум тн</div>
+                                </div>
+                                <div class="bg-slate-950/70 p-2.5 rounded-xl border border-slate-800">
+                                    <div class="text-[10px] text-slate-400">Таамаг нөөц (Онолын)</div>
+                                    <div class="font-bold text-emerald-400">~150 тэрбум тн</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 2: Potential Products Count (Хичнээн Төрлийн Бүтээгдэхүүн) -->
+                        <div class="rounded-2xl bg-slate-900/90 border border-emerald-500/35 p-6 flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute -right-6 -top-6 w-28 h-28 bg-emerald-500/10 rounded-full blur-2xl"></div>
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 text-[11px] font-extrabold uppercase">02. Бүтээгдэхүүний Төрөл</span>
+                                    <span class="text-xs font-bold text-emerald-400">Гүн Боловсруулалт</span>
+                                </div>
+                                <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 tracking-tight">
+                                    16 – 50+ <span class="text-lg font-bold text-white">төрөл</span>
+                                </div>
+                                <p class="text-xs text-slate-200 font-semibold mt-1">
+                                    Суурь 16 гол нэр төрөл ба тэдгээрийн дагалдах химийн 50+ дериватив
+                                </p>
+                                <div class="mt-3 flex flex-wrap gap-1.5">
+                                    <span class="px-2 py-1 rounded-md bg-slate-800 text-[11px] text-slate-200 border border-slate-700">Метанол & Хуванцар</span>
+                                    <span class="px-2 py-1 rounded-md bg-slate-800 text-[11px] text-slate-200 border border-slate-700">Дизель & Jet A-1</span>
+                                    <span class="px-2 py-1 rounded-md bg-slate-800 text-[11px] text-slate-200 border border-slate-700">Карбамид бордоо</span>
+                                    <span class="px-2 py-1 rounded-md bg-slate-800 text-[11px] text-slate-200 border border-slate-700">Идэвхжүүлсэн нүүрс</span>
+                                    <span class="px-2 py-1 rounded-md bg-slate-800 text-[11px] text-slate-200 border border-slate-700">Графен & Мяндас</span>
+                                    <span class="px-2 py-1 rounded-md bg-slate-800 text-[11px] text-slate-200 border border-slate-700">Газрын ховор элемент</span>
+                                </div>
+                            </div>
+                            <div class="mt-5 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                                <span class="text-slate-400">Эх загварын төсөөлөл:</span>
+                                <span class="font-extrabold text-teal-300">98.5% ашиглалт (жишиг)</span>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 3: Profit Margin Comparison (Түүхий vs Боловсруулсан Ашгийн Маржин %) -->
+                        <div class="rounded-2xl bg-slate-900/90 border border-sky-500/35 p-6 flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute -right-6 -top-6 w-28 h-28 bg-sky-500/10 rounded-full blur-2xl"></div>
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-2.5 py-1 rounded-lg bg-sky-500/15 text-sky-400 text-[11px] font-extrabold uppercase">03. Ашгийн Маржин (%)</span>
+                                    <span class="text-xs font-bold text-amber-400">Жишиг Маржин</span>
+                                </div>
+
+                                <!-- Raw vs Processed Margin Bars -->
+                                <div class="space-y-4 mt-2">
+                                    <div>
+                                        <div class="flex justify-between text-xs mb-1">
+                                            <span class="text-slate-400">Түүхий нүүрс борлуулалт (Маржин):</span>
+                                            <span id="posterRawMargin" class="font-bold text-rose-400">18%</span>
+                                        </div>
+                                        <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden">
+                                            <div id="posterRawMarginBar" class="h-full bg-rose-500/80 rounded-full transition-all duration-500" style="width: 18%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="flex justify-between text-xs mb-1">
+                                            <span class="text-emerald-300 font-semibold">Гүн боловсруулсан бүтээгдэхүүн (Маржин):</span>
+                                            <span id="posterProcMargin" class="font-extrabold text-emerald-400 text-sm">64%</span>
+                                        </div>
+                                        <div class="w-full h-4 bg-slate-800 rounded-full overflow-hidden">
+                                            <div id="posterProcMarginBar" class="h-full bg-gradient-to-r from-emerald-400 to-amber-400 rounded-full transition-all duration-500" style="width: 64%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25">
+                                    <div class="text-[11px] text-slate-300">Маржийн зөрүү (Өсөлт):</div>
+                                    <div id="posterMarginDiff" class="text-xl font-extrabold text-amber-400">+46.0% нэгжээр өндөр маржин</div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                                <span class="text-slate-400">1 тн нүүрсний орлогын өсөлт:</span>
+                                <span id="posterUnitGain" class="font-extrabold text-white">6.8x дахин</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Poster Bottom Callout Bar -->
+                    <div class="rounded-2xl bg-slate-950/90 border border-slate-800 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            <strong class="text-white">Дүгнэлт:</strong> Сонгосон жишиг хувилбарт <strong id="posterSummaryHighlight" class="text-emerald-400">64% жишиг маржин</strong> гэж үзсэн. Үйлдвэрийн бодит үр дүнг нүүрсний чанар, гарц, үнэ болон нийт зардлаар тусад нь тооцно.
+                        </div>
+                        <button type="button" data-analysis-target="yield" class="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-coal-950 font-extrabold text-xs whitespace-nowrap transition-colors shrink-0">
+                            Өөрөө тооцоолох
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                <a href="#byproducts-section" class="mt-6 inline-flex rounded-xl border border-emerald-500/40 px-4 py-3 text-sm font-bold text-emerald-300">Дагалдах бүтээгдэхүүний жагсаалт үзэх</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="byproducts-section" class="border-b border-slate-800 py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-extrabold text-white sm:text-4xl">Дагалдах бүтээгдэхүүн ба деривативууд</h2>
+            <p class="mt-3 max-w-3xl text-slate-400">Технологийн дөрвөн бүлгийн 23 жишээ. Эдгээр нь өөр өөр боловсруулах замналд үүсэх бүтээгдэхүүн, фракц болон дахин ашиглах урсгалууд бөгөөд нэг үйлдвэрийн зэрэгцээ гарц гэж нийлбэрлэхгүй.</p>
+            <div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+                <article class="glass-card flex flex-col rounded-2xl p-5 sm:p-6">
+                    <h3 class="text-lg font-bold text-white">Кокс-химийн дагалдах бүтээгдэхүүн</h3>
+                    <p class="mt-2 text-slate-400">Коксын хий, хөнгөн тос болон давирхайг цэвэршүүлж, фракцлан ялгах замнал.</p>
+                    <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-200">
+                        <li class="border-b border-slate-700/60 pb-2">Коксын хий</li>
+                        <li class="border-b border-slate-700/60 pb-2">Аммонийн сульфат</li>
+                        <li class="border-b border-slate-700/60 pb-2">Бензол</li>
+                        <li class="border-b border-slate-700/60 pb-2">Толуол</li>
+                        <li class="border-b border-slate-700/60 pb-2">Ксилол</li>
+                        <li class="border-b border-slate-700/60 pb-2">Нафталин</li>
+                        <li class="border-b border-slate-700/60 pb-2">Фенол</li>
+                        <li class="border-b border-slate-700/60 pb-2">Крезол</li>
+                        <li class="border-b border-slate-700/60 pb-2">Антрацен</li>
+                        <li class="border-b border-slate-700/60 pb-2">Пиридин</li>
+                        <li class="border-b border-slate-700/60 pb-2">Электродын пек</li>
+                    </ul>
+                    <div class="mt-5 space-y-2 border-t border-slate-700 pt-4">
+                        <a href="https://www.uky.edu/KGS/coal/coal-for-chemical-coke.php" target="_blank" rel="noopener noreferrer" class="block break-words text-sm text-emerald-300 underline underline-offset-4">Kentucky Geological Survey — Chemicals from Coking Metallurgical Coal</a>
+                        <a href="https://www.ncbi.nlm.nih.gov/sites/books/NBK304424/" target="_blank" rel="noopener noreferrer" class="block break-words text-sm text-emerald-300 underline underline-offset-4">IARC — Occupational Exposures during Coal-Tar Distillation</a>
+                    </div>
+                </article>
+                <article class="glass-card flex flex-col rounded-2xl p-5 sm:p-6">
+                    <h3 class="text-lg font-bold text-white">Хийжүүлэлтийн дагалдах урсгал</h3>
+                    <p class="mt-2 text-slate-400">Синтез хий цэвэрлэх болон хүхэр ялгах тоноглолын сонголтоос хамаарах бүтээгдэхүүн, урсгалууд.</p>
+                    <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-200">
+                        <li class="border-b border-slate-700/60 pb-2">Элементийн хүхэр</li>
+                        <li class="border-b border-slate-700/60 pb-2">Хүхрийн хүчил</li>
+                        <li class="border-b border-slate-700/60 pb-2">Баригдсан CO₂</li>
+                        <li class="border-b border-slate-700/60 pb-2">Шилжсэн шаарга</li>
+                    </ul>
+                    <div class="mt-5 space-y-2 border-t border-slate-700 pt-4">
+                        <a href="https://netl.doe.gov/sites/default/files/2026-02/Gasification%20Handbook.pdf" target="_blank" rel="noopener noreferrer" class="block break-words text-sm text-emerald-300 underline underline-offset-4">U.S. DOE / NETL — Gasification Handbook, 11-р бүлэг</a>
+                        <a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=9101PEL7.TXT" target="_blank" rel="noopener noreferrer" class="block break-words text-sm text-emerald-300 underline underline-offset-4">U.S. EPA — Coal Gasification Facilities</a>
+                    </div>
+                </article>
+                <article class="glass-card flex flex-col rounded-2xl p-5 sm:p-6">
+                    <h3 class="text-lg font-bold text-white">Шингэрүүлэлт ба Фишер–Тропшийн фракцууд</h3>
+                    <p class="mt-2 text-slate-400">Синтезийн бүтээгдэхүүнийг нэрэх, гидрокрекинг болон цэвэршүүлэх нэмэлт дамжлагуудаар ангилна.</p>
+                    <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-200">
+                        <li class="border-b border-slate-700/60 pb-2">Нафта</li>
+                        <li class="border-b border-slate-700/60 pb-2">Шингэрүүлсэн хий (LPG)</li>
+                        <li class="border-b border-slate-700/60 pb-2">Фишер–Тропшийн лав</li>
+                        <li class="border-b border-slate-700/60 pb-2">Суурь тос</li>
+                    </ul>
+                    <div class="mt-5 space-y-2 border-t border-slate-700 pt-4">
+                        <a href="https://www.netl.doe.gov/projects/files/FY14_AnalysisofNaturalGas-to-LiquidTransportationFuelsviaFischer-Tropsch_090113.pdf" target="_blank" rel="noopener noreferrer" class="block break-words text-sm text-emerald-300 underline underline-offset-4">U.S. DOE / NETL — Fischer–Tropsch Fuels Analysis</a>
+                    </div>
+                </article>
+                <article class="glass-card flex flex-col rounded-2xl p-5 sm:p-6">
+                    <h3 class="text-lg font-bold text-white">Үнс ба эрдсийн дахин ашиглалт</h3>
+                    <p class="mt-2 text-slate-400">Үнсний найрлага, уусалтын шинжилгээ, бүтээгдэхүүний стандартын шаардлагыг хангаж ашиглана.</p>
+                    <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-200">
+                        <li class="border-b border-slate-700/60 pb-2">Цементэд нэмэх үнс</li>
+                        <li class="border-b border-slate-700/60 pb-2">Барилгын дүүргэгч</li>
+                        <li class="border-b border-slate-700/60 pb-2">Геополимер материал</li>
+                        <li class="border-b border-slate-700/60 pb-2">Газрын ховор элементийн баяжмал</li>
+                    </ul>
+                    <div class="mt-5 space-y-2 border-t border-slate-700 pt-4">
+                        <a href="https://www.fhwa.dot.gov/Pavement/recycling/fach02.cfm" target="_blank" rel="noopener noreferrer" class="block break-words text-sm text-emerald-300 underline underline-offset-4">FHWA — Fly Ash Facts for Highway Engineers</a>
+                        <a href="https://www.netl.doe.gov/node/14830" target="_blank" rel="noopener noreferrer" class="block break-words text-sm text-emerald-300 underline underline-offset-4">U.S. DOE / NETL — Rare Earth Recovery from Fly Ash</a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -1568,5 +1838,6 @@
             updateCalculator();
         });
     </script>
+    <script src="./analysis-tabs.js"></script>
 </body>
 </html>

@@ -790,7 +790,15 @@
 
                     <!-- Description -->
                     <div>
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Ерөнхий тодорхойлолт</h4>
+                        <div class="mb-2 flex items-center gap-2">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Ерөнхий тодорхойлолт</h4>
+                            <button type="button" id="descriptionSourcesToggle" aria-label="Ерөнхий тодорхойлолтын эх сурвалж" aria-expanded="false" aria-controls="descriptionSources" class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-emerald-400/60 text-sm font-bold text-emerald-300 hover:bg-emerald-500/15">?</button>
+                        </div>
+                        <section id="descriptionSources" aria-labelledby="descriptionSourcesTitle" hidden class="mb-4 rounded-2xl border border-emerald-500/30 bg-slate-950/60 p-4">
+                            <h5 id="descriptionSourcesTitle" class="mb-2 text-sm font-bold text-white">Эх сурвалж</h5>
+                            <ul id="descriptionSourcesList" class="space-y-4"></ul>
+                            <p class="mt-3 text-sm text-slate-400">Эдгээр нь технологийн ерөнхий тайлбарын эх сурвалжууд. Үнэ, гарцын жишиг тоонуудыг баталгаажуулах лавлагаа биш. Холбоосууд шинэ табд нээгдэнэ.</p>
+                        </section>
                         <p id="modalDescription" class="text-sm text-slate-300 leading-relaxed"></p>
                     </div>
 
@@ -849,11 +857,27 @@
         </div>
     </div>
 
+    <script src="./product-sources.js"></script>
     <script>
         // Product Data & Modal Controls
         const productModal = document.getElementById('productModal');
         const closeModalBtn = document.getElementById('closeModalBtn');
         const modalBackdrop = document.getElementById('modalBackdrop');
+
+        const descriptionSourcesToggle = document.getElementById('descriptionSourcesToggle');
+        const descriptionSources = document.getElementById('descriptionSources');
+        const descriptionSourcesList = document.getElementById('descriptionSourcesList');
+
+        function closeDescriptionSources() {
+            descriptionSources.hidden = true;
+            descriptionSourcesToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        descriptionSourcesToggle.addEventListener('click', () => {
+            const open = descriptionSourcesToggle.getAttribute('aria-expanded') !== 'true';
+            descriptionSourcesToggle.setAttribute('aria-expanded', String(open));
+            descriptionSources.hidden = !open;
+        });
 
         let modalTrigger;
         function openModal(product) {
@@ -868,6 +892,24 @@
                 document.getElementById('modalYield').textContent = product.yield || '';
                 document.getElementById('modalCoalType').textContent = product.coalType || '';
                 document.getElementById('modalDescription').textContent = product.description || '';
+                closeDescriptionSources();
+                descriptionSourcesList.replaceChildren(...productSources[product.id].map(source => {
+                    const item = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = source.url;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.className = 'block break-words text-sm font-semibold text-emerald-300 underline underline-offset-4 hover:text-emerald-200';
+                    link.textContent = source.title;
+                    const publisher = document.createElement('div');
+                    publisher.className = 'mt-1 text-sm text-slate-400';
+                    publisher.textContent = source.publisher;
+                    const note = document.createElement('p');
+                    note.className = 'mt-1 text-sm text-slate-300';
+                    note.textContent = source.note;
+                    item.append(link, publisher, note);
+                    return item;
+                }));
 
                 const stepsContainer = document.getElementById('modalSteps');
                 if (stepsContainer && Array.isArray(product.steps)) {
@@ -903,7 +945,12 @@
         if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && productModal && !productModal.classList.contains('hidden')) {
-                closeModal();
+                if (!descriptionSources.hidden) {
+                    closeDescriptionSources();
+                    descriptionSourcesToggle.focus();
+                } else {
+                    closeModal();
+                }
             }
         });
 
